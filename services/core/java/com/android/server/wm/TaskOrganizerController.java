@@ -608,7 +608,7 @@ class TaskOrganizerController extends ITaskOrganizerController.Stub {
     }
 
     static SurfaceControl applyStartingWindowAnimation(WindowState window) {
-        final SurfaceControl.Transaction t = window.getPendingTransaction();
+        final SurfaceControl.Transaction t = window.getSyncTransaction();
         final StartingWindowAnimationAdaptor adaptor = new StartingWindowAnimationAdaptor();
         window.startAnimation(t, adaptor, false, ANIMATION_TYPE_STARTING_REVEAL);
         final SurfaceControl leash = window.getAnimationLeash();
